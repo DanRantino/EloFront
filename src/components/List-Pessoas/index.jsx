@@ -10,10 +10,13 @@ import { DivHeader,
 
 import CardPessoas from '../card-Pessoas'
 
+  var url =  API_URL ? API_URL : 'http://localhost:8080/people/'
+
+
 export default function ListPessoas(){
     const [Dados,setDados] = useState([])
     const api = useCallback(async () => {
-            const data = await axios.get("http://localhost:8080/people?page=0&size=2")
+            const data = await axios.get(url+"people?page=0&size=2")
             setDados(data.data);
         },[])
     

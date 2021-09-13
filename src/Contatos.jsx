@@ -52,11 +52,11 @@ function Contatos() {
     {
       if(idContato!=undefined)
       {
-        axios.put('http://localhost:8080/people/'+idContato,Pessoa).catch(e=>alert('Erro ao salvar o usuário'))
+        axios.put(url+idContato,Pessoa).catch(e=>alert('Erro ao salvar o usuário'))
       }
       else
       {
-        axios.post('http://localhost:8080/people',Pessoa).catch(e=>alert('Erro ao salvar o usuário'))
+        axios.post(url,Pessoa).catch(e=>alert('Erro ao salvar o usuário'))
         alert('Salvo com sucesso!')
       }
     }
