@@ -12,7 +12,7 @@ import CardPessoas from '../card-Pessoas'
 import dotenv from 'dotenv';
 dotenv.config();
 
-var url =  process.env.API_URL ? process.env.API_URL : 'http://localhost:8080/people/'
+var url =  process.env.API_URL
 
 export default function ListPessoas(){
     const [Dados,setDados] = useState([])

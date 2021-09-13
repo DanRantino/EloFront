@@ -19,7 +19,7 @@ import axios from "axios";
 import dotenv from 'dotenv';
 dotenv.config();
 
-var url =  process.env.API_URL ? process.env.API_URL : 'http://localhost:8080/people/'
+var url =  process.env.API_URL
 
 function Contatos() {
 
