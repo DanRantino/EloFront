@@ -15,20 +15,24 @@ import {InputText,
 import {TiTimes} from 'react-icons/ti'
 
 import WrapperPagina from './styles/WrapperPagina'
+import axios from "axios";
 
 function Contatos() {
 
 
-  const [nome,setNome] = useState('')
-  const [cpf, setCpf] = useState('')
-  const [dataNasc, setdataNasc] = useState('')
+  const [nome,setNome] = useState('Daniel')
+  const [cpf, setCpf] = useState('101.351.379-77')
+  const [dataNasc, setdataNasc] = useState('21/10/1997')
 
-  const [Contatos, setContato] = useState([{nome:"",telefone: "",email: ""}])
+  const [Contatos, setContato] = useState([{nome:"qweqwe",telefone: "87897987",email: "daniel@email.com"}])
 
   const [Pessoa , setPessoa] = useState({nome, cpf, dataNasc, listaContatos:Contatos})
 
 
   let {idContato} = useParams();
+
+  // eslint-disable-next-line no-undef
+  var url =  API_URL ? API_URL : 'http://localhost:8080/people/'
 
   function atualizaState()
   {
@@ -40,13 +44,27 @@ function Contatos() {
     setPessoa({...Pessoa})
     setPessoa({...Pessoa})
     setPessoa({...Pessoa})
-    console.log(Pessoa)
   }
 
   function SalvaContato(e){
-    e.preventDefault();
     atualizaState();
-    console.log(Pessoa)
+    try
+    {
+      if(idContato!=undefined)
+      {
+        axios.put('http://localhost:8080/people/'+idContato,Pessoa).catch(e=>alert('Erro ao salvar o usuário'))
+      }
+      else
+      {
+        axios.post('http://localhost:8080/people',Pessoa).catch(e=>alert('Erro ao salvar o usuário'))
+        alert('Salvo com sucesso!')
+      }
+    }
+    catch (e)
+    {
+      alert('Erro')
+    }
+    
   }
   
   function AdicionarContato(){
@@ -113,6 +131,11 @@ function Contatos() {
                 <InputText type="text" 
                 title="Digite o telefone do contato"
                 placeholder="Telefone do Contato"
+                value={Contatos[key].telefone}
+                onChange={(e)=>{
+                  Contatos[key].telefone = e.target.value;
+                  setContato([...Contatos])
+                }}
                 />
                 </DivInputContatos>
                 <DivInputContatos>
@@ -120,6 +143,11 @@ function Contatos() {
                 <InputText type="email" 
                 title="Digite o Email do contato"
                 placeholder="Email do Contato"
+                value={Contatos[key].email}
+                onChange={(e)=>{
+                  Contatos[key].email = e.target.value;
+                  setContato([...Contatos])
+                }}
                 />
                 </DivInputContatos>
                 <DivInputContatos>
