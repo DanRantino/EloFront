@@ -10,6 +10,7 @@ import { DivHeader,
 
 import CardPessoas from '../card-Pessoas'
 
+  // eslint-disable-next-line no-undef
   var url =  API_URL ? API_URL : 'http://localhost:8080/people/'
 
 
