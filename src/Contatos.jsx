@@ -25,7 +25,7 @@ function Contatos() {
 
 
   const [nome,setNome] = useState('Daniel')
-  const [cpf, setCpf] = useState('101.351.379-77')
+  const [cpf, setCpf] = useState('927.603.530-36')
   const [dataNasc, setdataNasc] = useState('21/10/1997')
 
   const [Contatos, setContato] = useState([{nome:"qweqwe",telefone: "87897987",email: "daniel@email.com"}])

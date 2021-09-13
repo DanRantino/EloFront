@@ -17,7 +17,7 @@ var url =  process.env.API_URL
 export default function ListPessoas(){
     const [Dados,setDados] = useState([])
     const api = useCallback(async () => {
-            const data = await axios.get(url+"people?page=0&size=2")
+            const data = await axios.get(url+"?page=0&size=2")
             setDados(data.data);
         },[])
     
