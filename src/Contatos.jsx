@@ -16,6 +16,10 @@ import {TiTimes} from 'react-icons/ti'
 
 import WrapperPagina from './styles/WrapperPagina'
 import axios from "axios";
+import dotenv from 'dotenv';
+dotenv.config();
+
+var url =  process.env.API_URL ? process.env.API_URL : 'http://localhost:8080/people/'
 
 function Contatos() {
 
@@ -30,9 +34,6 @@ function Contatos() {
 
 
   let {idContato} = useParams();
-
-  // eslint-disable-next-line no-undef
-  var url =  API_URL ? API_URL : 'http://localhost:8080/people/'
 
   function atualizaState()
   {

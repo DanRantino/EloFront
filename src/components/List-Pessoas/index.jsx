@@ -6,13 +6,13 @@ import { DivHeader,
         PeopleThead,
         PeopleHead,
         PeopleTbody,
-        WrapperPag } from './styles'
+        WrapperPag } from './styles';
 
 import CardPessoas from '../card-Pessoas'
+import dotenv from 'dotenv';
+dotenv.config();
 
-  // eslint-disable-next-line no-undef
-  var url =  API_URL ? API_URL : 'http://localhost:8080/people/'
-
+var url =  process.env.API_URL ? process.env.API_URL : 'http://localhost:8080/people/'
 
 export default function ListPessoas(){
     const [Dados,setDados] = useState([])
